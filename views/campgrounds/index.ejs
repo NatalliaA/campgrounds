@@ -1,0 +1,41 @@
+<%- include("../partials/header") %>
+<style>
+    .thumbnail img{  
+        min-height: 200px;     
+        width: 100%;          
+    }
+</style>
+
+<div class="container">    
+<header class="jumbotron">
+    <div class="container">
+    <h1>Welcome to YelpCamp!</h1>
+    <p>View our hand-picked campgrounds from all over the World.</p>
+    <p>
+    <a class="btn btn-success" href="/campgrounds/new">Add New Campground</a>
+    </p>
+    </div>
+</header>
+
+<!-- Creating a grid of camps -->
+<!-- style for fitting img with diff size -->
+<div class="row text-center" style="display:flex; flex-wrap: wrap">
+
+<% campgrounds.forEach(function(camp){ %>
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">   
+    <img src="<%= camp.image %>">
+    <div class="caption">
+        <h4><%= camp.name %></h4>
+    </div>
+    <p>
+        <a href ="/campgrounds/<%= camp._id %>" class="btn btn-success">More Info</a>
+    </p>
+        </div>        
+    </div>
+<% }) %>
+</div>
+
+</div>
+
+<%- include("../partials/footer") %>
